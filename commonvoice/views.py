@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework.generics import ListCreateAPIView
 
-# Create your views here.
+from commonvoice.models import Recording
+from commonvoice.serializers import RecordingSerializer
+
+
+class RecordingsView(ListCreateAPIView):
+    queryset = Recording.objects.all()
+    serializer_class = RecordingSerializer

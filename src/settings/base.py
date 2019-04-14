@@ -34,11 +34,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'cloudinary_storage',
+    'cloudinary',
+
     'corsheaders',
 
     'import_export',
 
+    'rest_framework',
+
     'core.apps.CoreConfig',
+    'commonvoice.apps.CommonvoiceConfig',
 ]
 
 MIDDLEWARE = [
@@ -112,3 +118,11 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, '../static')
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 5
+}
