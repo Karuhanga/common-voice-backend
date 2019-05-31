@@ -11,3 +11,6 @@ class Recording(models.Model):
     recording = models.FileField(upload_to=upload_to, blank=False, null=False)
     correct_count = models.IntegerField(default=0)
     incorrect_count = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.text
